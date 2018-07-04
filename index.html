@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linked Open Data Blockchain</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topband">
+    <span class="llogo"><img src="images/hufflepuff.png" height="120"></span>
+    <span class="llogo"><a href="https://instituteofcoding.org/"><img src="images/ioc-logo.png"
+                                                                      title="Institute of Coding" width="340"
+                                                                      height="90"></a></span>
+    <span class="rlogo"><a href="http://isws2018.semanticwebschool.org/"><img src="images/isws-logo.png"
+                                                                              title="ISWS 2018" width="320" height="90"></a></span>
+</div>
+
+<h1>Linked Open Data Blockchain</h1>
+
+<div class="section">
+
+    <h2>1. Authenticate</h2>
+    <form id="signin">
+        <div class="form-group">
+            <label for="username">Email address:</label>
+            <input type="email" class="form-control" id="username" value="s3@blockchain.open.ac.uk">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <pre><b>Result:</b> <div id="tokenResult" class="token"></div></pre>
+
+    <h2>2. Create Store</h2>
+    <form id="createStore">
+        <div class="form-group">
+            <label for="createStoreToken">Token:</label>
+            <input type="text" id="createStoreToken" class="form-control token">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <pre><b>Result:</b> <div id="transactionResult" class="transaction"></div></pre>
+
+    <h2>3. Register Store in Blockchain</h2>
+    <form id="registerStore">
+        <div class="form-group">
+            <label for="registerStoreToken">Token:</label>
+            <input type="text" id="registerStoreToken" class="form-control token">
+        </div>
+        <div class="form-group">
+            <label for="registerStoreTransaction" class="transaction">Transaction:</label>
+            <input type="text" id="registerStoreTransaction" class="form-control transaction">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <pre><b>Result:</b> <div id="registerStoreResult"></div></pre>
+
+    <h2>4. Show Registered Stores</h2>
+    <form id="showStores">
+        <div class="form-group">
+            <label for="showStoreToken">Token:</label>
+            <input type="text" id="showStoreToken" class="form-control token">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <pre><b>Result:</b> <div id="showStoreResult"></div></pre>
+
+</div>
+
+</body>
+</html>
