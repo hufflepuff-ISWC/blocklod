@@ -16,6 +16,10 @@ body {
     border: solid darkgray 2px;
 }
 
+.error {
+    color: red;
+}
+
 .container {
     display: block;
     position: relative;

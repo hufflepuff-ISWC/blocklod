@@ -122,6 +122,7 @@
 <div class="section">
 
     <h2>6. Put data to validate and extract entities</h2>
+    <p>F.e: "John Doe studied at Open University"</p>
     <form id="extractEntities">
         <div class="form-group">
             <label for="showStoreToken">Data to validate:</label>
@@ -130,8 +131,23 @@
         <input type="submit" value="Submit">
     </form>
 
-    <pre><b>Result:</b> <div id="extractEntitiesResult"></div></pre>
+    <pre><b>Result:</b> <div id="extractEntitiesResult" class="extractEntitiesResult"></div></pre>
 </div>
+
+<div class="section">
+
+    <h2>7. Put data to Quad</h2>
+    <form id="storeData">
+        <div class="form-group">
+            <label for="showStoreToken">Data to validate:</label>
+            <textarea id="storeDataInput" class="form-control extractEntitiesResult" ></textarea>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <pre><b>Result:</b> <div id="storeDataResult"></div></pre>
+</div>
+
 
 </body>
 </html>
