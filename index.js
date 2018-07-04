@@ -1,6 +1,10 @@
 var token;
 var transaction;
 
+function urlChange(url) {
+    var site = url + '&output=embed';
+    document.getElementById('iFrameName').src = site;
+}
 
 function getEntities(text){
     const url = 'http://model.dbpedia-spotlight.org/en/annotate';
