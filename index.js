@@ -16,6 +16,16 @@ var executeAjax = function (type, url, data, success) {
     });
 };
 
+var getDBpediaEntities = function(text, success){
+    var url = 'http://model.dbpedia-spotlight.org/en/annotate';
+    var data = {
+        confidence : 0.35,
+        text: text
+    };
+
+    return executeAjax('GET', url, data, success);
+};
+
 $(document).ready(function () {
     $('#signin').submit(function (e) {
         e.preventDefault();
