@@ -31,16 +31,16 @@
 <h1>Linked Open Data Blockchain</h1>
 
 
-
 <div class="section">
     <h2>Blockchain Monitor</h2>
-    <a href="http://blockchain7.kmi.open.ac.uk/parity/blockchainmonitorsocket/index.html"><img src="images/monitor.png" title="ISWS 2018" height="90"></a>
-    <iframe src="https://blockchain7.kmi.open.ac.uk/parity/blockchainmonitorsocket/index.html">test</iframe>
+    <a href="http://blockchain7.kmi.open.ac.uk/parity/blockchainmonitorsocket/index.html"><img src="images/monitor.png"
+                                                                                               title="ISWS 2018"
+                                                                                               height="90"></a>
+    <!--<iframe src="https://blockchain7.kmi.open.ac.uk/parity/blockchainmonitorsocket/index.html">test</iframe>-->
 </div>
 
 
 <div class="section">
-
     <h2>1. Authenticate</h2>
     <form id="signin">
         <div class="form-group">
@@ -55,6 +55,9 @@
     </form>
 
     <pre><b>Result:</b> <div id="tokenResult" class="token"></div></pre>
+</div>
+
+<div class="section">
 
     <h2>2. Create Store</h2>
     <form id="createStore">
@@ -66,8 +69,29 @@
     </form>
 
     <pre><b>Result:</b> <div id="transactionResult" class="transaction"></div></pre>
+</div>
 
-    <h2>3. Register Store in Blockchain</h2>
+<div class="section">
+
+    <h2>3. Transaction Receipt</h2>
+    <form id="transactionReceipt">
+        <div class="form-group">
+            <label for="transactionReceiptToken">Token:</label>
+            <input type="text" id="transactionReceiptToken" class="form-control token">
+        </div>
+        <div class="form-group">
+            <label for="transactionReceiptTransaction" class="transaction">Transaction:</label>
+            <input type="text" id="transactionReceiptTransaction" class="form-control transaction">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <pre><b>Result:</b> <div id="transactionReceiptResult"></div></pre>
+</div>
+
+<div class="section">
+
+    <h2>4. Register Store in Blockchain</h2>
     <form id="registerStore">
         <div class="form-group">
             <label for="registerStoreToken">Token:</label>
@@ -81,8 +105,10 @@
     </form>
 
     <pre><b>Result:</b> <div id="registerStoreResult"></div></pre>
+</div>
+<div class="section">
 
-    <h2>4. Show Registered Stores</h2>
+    <h2>5. Show Registered Stores</h2>
     <form id="showStores">
         <div class="form-group">
             <label for="showStoreToken">Token:</label>
@@ -92,8 +118,10 @@
     </form>
 
     <pre><b>Result:</b> <div id="showStoreResult"></div></pre>
+</div>
+<div class="section">
 
-    <h2>5. Put data to validate and extract entities</h2>
+    <h2>6. Put data to validate and extract entities</h2>
     <form id="extractEntities">
         <div class="form-group">
             <label for="showStoreToken">Data to validate:</label>
@@ -103,7 +131,6 @@
     </form>
 
     <pre><b>Result:</b> <div id="extractEntitiesResult"></div></pre>
-
 </div>
 
 </body>

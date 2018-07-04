@@ -3,10 +3,11 @@ var transaction;
 
 
 function getEntities(text){
-    const url = 'http://model.dbpedia-spotlight.org/en/annotate';
+    const url = 'https://api.dbpedia-spotlight.org/en/annotate';
     const data = {
         confidence : 0.35,
-        text: text
+        text: text,
+        types: 'DBpedia:Organisation, DBpedia:Person, DBpedia:Place, DBpedia:Work'
     };
 
     return $.ajax({
@@ -75,6 +76,19 @@ $(document).ready(function () {
             $("#registerStoreResult").text(JSON.stringify(result));
         };
         executeAjax('POST', 'https://blockchain7.kmi.open.ac.uk/rdf/store/register', {token: token, transaction: transaction}).then(function(respJson){
+            success(respJson);
+        }, function(reason){
+            console.error("error in processing your request", reason);
+        });
+    });
+
+    $('#transactionReceipt').submit(function (e) {
+        e.preventDefault();
+
+        var success = function(result){
+            $("#transactionReceiptResult").text(JSON.stringify(result));
+        };
+        executeAjax('POST', 'https://blockchain7.kmi.open.ac.uk/rdf/util/transactionreceipt', {token: token, transactionnumber: transaction}).then(function(respJson){
             success(respJson);
         }, function(reason){
             console.error("error in processing your request", reason);
