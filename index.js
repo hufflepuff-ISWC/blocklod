@@ -24,12 +24,9 @@ function getEntities(text){
 
 var executeAjax = function (type, url, data) {
     return $.ajax({
-        accepts: {
-            json: "application/json"
-        },
         type: type,
         url: url,
-        // contentType: "application/json; charset=utf-8",
+        contentType: "application/json; charset=utf-8",
         data: JSON.stringify(data),
         dataType: "json"
     });
