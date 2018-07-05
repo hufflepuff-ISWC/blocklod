@@ -1,16 +1,16 @@
 var token = '';
 var transaction = '';
-var uris = [];
+var address = '';
+var object = '';
+var subject = '';
+var predicate = "<http://example.com/studiedAt>";
+var graph = "<http://dbpedia.org>";
 
-function getStoreDataRequest(uris) {
-    var object = uris.length > 0 ? '<' + uris[0] + '>' : '';
-    var subject = "<http://dbpedia.org/resource/John_Doe>";
-    var predicate = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>";
-    var graph = "<http://dbpedia.org>";
+function getStoreDataRequest() {
     var quad = subject + ' ' + predicate + ' ' + object + ' ' + graph + ' .';
     var storeDatarequest = {
         "token": token,
-        "address": "0x1a6abf236cd30610ef51687ee825957db6377f60",
+        "address": address,
         "graph": graph,
         "predicate": predicate,
         "object": object,
@@ -104,6 +104,7 @@ $(document).ready(function () {
 
         let outputDiv = $("#registerStoreResult");
         var success = function(result){
+            address = result.contractaddress;
             showSuccess(outputDiv, result);
         };
         executeAjax('POST', 'https://blockchain7.kmi.open.ac.uk/rdf/store/register', {token: token, transaction: transaction}).then(function(respJson){
@@ -147,18 +148,20 @@ $(document).ready(function () {
         var data = $('#data').val();
         let outputDiv = $(".extractEntitiesResult");
         var success = function(result){
-            uris = result.Resources.map(function(el){
-                return el["@URI"];
-            });
-
             showSuccess(outputDiv, result);
-            var storeDataRequest = getStoreDataRequest(uris);
+            var storeDataRequest = getStoreDataRequest();
 
             $("#storeDataInput").text(JSON.stringify(storeDataRequest, null, 4));
         };
 
         getEntities(data).then(function(respJson){
-            success(respJson);
+
+            var persons = respJson.Resources.filter((el) => {return el["@types"].indexOf('DBpedia:Person') >= 0});
+            subject = (persons.length > 0) ? "<" + persons[0]["@URI"] + ">": subject;
+            var organisations = respJson.Resources.filter((el) => {return el["@types"].indexOf('DBpedia:Organisation') >= 0});
+            object = (organisations.length > 0) ? "<" + organisations[0]["@URI"] + ">": object;
+            var result = {"subject" : subject, "predicate" : predicate, "object" : object}
+            success(result);
         }, function(reason){
             processError(outputDiv, reason);
         });
@@ -173,7 +176,7 @@ $(document).ready(function () {
             showSuccess(outputDiv, result);
         };
 
-        var data =  getStoreDataRequest(uris);
+        var data =  getStoreDataRequest();
 
         executeAjax('POST', 'https://blockchain7.kmi.open.ac.uk/rdf/store/addquad', data).then(function(respJson){
             success(respJson);
