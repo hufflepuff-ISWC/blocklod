@@ -3,7 +3,7 @@ var transaction = '';
 var address = '';
 var object = '';
 var subject = '';
-var predicate = "<http://example.com/studiedAt>";
+var predicate = "<http://dbpedia.org/ontology/almaMater>";
 var graph = "<http://dbpedia.org>";
 
 function getStoreDataRequest() {
