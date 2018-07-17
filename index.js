@@ -47,7 +47,7 @@ var executeAjax = function (type, url, data) {
         url: url,
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(data),
-        dataType: "jsonp"
+        dataType: "json"
     });
 };
 
